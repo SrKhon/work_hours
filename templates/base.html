@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Tables</title>
+<link rel="stylesheet" href="{% static 'hours/style.css' %}">
+</head>
+<body>
+
+<div class="container mtb-3"></div>
+/
+	<table class="table table-2">
+		{% block content %}
+		<thead>
+			<tr>
+				<th>Число</th>
+				<th>День</th>
+				<th>Смена</th>
+				<th>Кибон</th>
+				<th>Ночные</th>
+				<th>Чаноб</th>
+				<th>тыкын</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for day in work_days %}
+			<tr>
+				<td>{{ day.date|date:'d' }}</td>
+				<td>{{ day.date|date:'D' }}</td>
+				<td>{{ day.shift }}</td>
+				<td>{{ day.day.day }}</td>
+				<td>{{ day.night }}</td>
+				<td>{{ day.overtime }}</td>
+				<td>{{ day.holiday_work }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		{% endblock content %}
+	</table>
+</div>
+	
+</body>
+</html>
+

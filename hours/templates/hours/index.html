@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+		{% block content %}
+		<thead>
+			<tr>
+				<th>Число</th>
+				<th>День</th>
+				<th>Смена</th>
+				<th>Кибон</th>
+				<th>Ночные</th>
+				<th>Чаноб</th>
+				<th>тыкын</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for day in work_days %}
+			<tr>
+				<td>{{ day.date|date:'d' }}</td>
+				<td>{{ day.date|date:'D' }}</td>
+				<td>{{ day.shift }}</td>
+				<td>{{ day.day }}</td>
+				<td>{{ day.night }}</td>
+				<td>{{ day.overtime }}</td>
+				<td>{{ day.holyday_work }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		{% endblock content %}
+	</table>
+</div>
+	
+</body>
+</html>
+
