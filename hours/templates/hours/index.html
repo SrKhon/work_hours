@@ -1,35 +1,31 @@
-
 {% extends 'base.html' %}
 
-		{% block content %}
-		<thead>
-			<tr>
-				<th>Число</th>
-				<th>День</th>
-				<th>Смена</th>
-				<th>Кибон</th>
-				<th>Ночные</th>
-				<th>Чаноб</th>
-				<th>тыкын</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for day in work_days %}
-			<tr>
-				<td>{{ day.date|date:'d' }}</td>
-				<td>{{ day.date|date:'D' }}</td>
-				<td>{{ day.shift }}</td>
-				<td>{{ day.day }}</td>
-				<td>{{ day.night }}</td>
-				<td>{{ day.overtime }}</td>
-				<td>{{ day.holyday_work }}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-		{% endblock content %}
-	</table>
-</div>
-	
-</body>
-</html>
+{% block content %}
 
+<table class="table table-2 mtb-3">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Shift</th>
+					<th>Day</th>
+					<th>Night</th>
+					<th>Overtime</th>
+					<th>HolyDay Work</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for day in work_days %}
+				<tr>
+					<td>{{ day.data|date:"d D" }}</td>
+					<td>{{ day.shift }}</td>
+					<td>{{ day.day }}</td>
+					<td>{{ day.night }}</td>
+					<td>{{ day.overtime }}</td>
+					<td>{{ day.hol_day }}</td>
+
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+{% endblock content %}

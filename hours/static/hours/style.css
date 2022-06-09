@@ -46,13 +46,14 @@
     border-right: 1px solid #ccc;
 }
 
+
 .table-2{
-    display: block;
-    width: 100%;
+	display: block;
+	width: 100%;
 }
 
-.table-2 thead, 
-.table-2 tbody, 
+.table-2 thead,
+.table-2 tbody,
 .table-2 thead th {
     display: block;
 }
@@ -62,20 +63,19 @@
 }
 
 .table-2 tbody{
-    overflow-x: auto;
+	overflow-x: auto;
 }
-
 .table-2 tbody tr {
     display: table-cell;
     border-right: 1px solid #ccc;
 }
 
 .table-2 tbody tr:last-child{
-    border-right: none;
+	border-right: none;
 }
 
 .table-2 td{
-    display: block;
+	display: block;
 }
 
 .table.table-2 td{
