@@ -16,7 +16,8 @@
 			<tbody>
 				{% for day in work_days %}
 				<tr>
-					<td>{{ day.data|date:"d D" }}</td>
+					<td>{{ day.date|date:'d' }}</td>
+					<td>{{ day.date|date:'D' }}</td>
 					<td>{{ day.shift }}</td>
 					<td>{{ day.day }}</td>
 					<td>{{ day.night }}</td>

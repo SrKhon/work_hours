@@ -9,6 +9,7 @@ class Shift(models.Model):
     def __str__(self):
         return self.title
 
+
 class WorkDays(models.Model):
     date = models.DateField('Дата', default=timezone.now, auto_now=False, null=True)
     slug = models.SlugField(max_length=50, unique=True)
@@ -22,4 +23,4 @@ class WorkDays(models.Model):
         return str(self.date)
 
     class Meta:
-        ordering =['date']
+        ordering = ['date']
