@@ -1,10 +1,17 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
 class Month(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('tb_month', kwargs={'slug': self.slug})
 
 
 class Shift(models.Model):
