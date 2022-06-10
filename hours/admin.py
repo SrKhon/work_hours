@@ -8,6 +8,7 @@ class MonthAdmin(admin.ModelAdmin):
 
 class WorkDaysAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('date',)}
+    list_display = ('date', 'shift', 'month')
 
 
 class ShiftAdmin(admin.ModelAdmin):
