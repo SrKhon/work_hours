@@ -19,7 +19,7 @@
 			<tbody>
 				{% for day in month.work_days.all %}
 				<tr>
-					<td>{{ day.date|date:'j/d' }}</td>
+					<td>{{ day.date|date:'m/d' }}</td>
 					<td>{{ day.date|date:'D' }}</td>
 					<td>{{ day.shift }}</td>
 					<td>{{ day.day }}</td>
