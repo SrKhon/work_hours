@@ -8,7 +8,7 @@
 					<th>Date</th>
 					<th>Day of The Week</th>
 					<th>Shift</th>
-					<th>기본금</th>
+					<th>기본금 {{ sum_hours }}</th>
 					<th>연장근로수당</th>
 					<th>야간근로수당</th>
 					<th>휴일근로수당</th>
@@ -17,7 +17,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for day in month.work_days.all %}
+				{% for day in month %}
 				<tr>
 					<td>{{ day.date|date:'m/d' }}</td>
 					<td>{{ day.date|date:'D' }}</td>
