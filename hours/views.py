@@ -6,8 +6,8 @@ from .models import WorkDays, Month
 def days(request):
     work_days = WorkDays.objects.all()
     months = Month.objects.all()
-    hours_month = WorkDays.objects.aggregate(Day=Sum('day'))
-    return render(request, 'hours/index.html', {'work_days': work_days, 'months': months, 'hours_month': hours_month['Day']})
+    sum_hours = WorkDays.objects.aggregate(Day=Sum('day'))
+    return render(request, 'hours/index.html', {'work_days': work_days, 'months': months, 'sum_hours':sum_hours['Day']})
 
 
 def tb_month(request, slug):
