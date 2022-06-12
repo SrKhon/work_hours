@@ -11,7 +11,7 @@ class Month(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tb_month', kwargs={'slug': self.slug})
+        return reverse('tbl_month', kwargs={'slug': self.slug})
 
 
 class Shift(models.Model):
@@ -23,12 +23,12 @@ class Shift(models.Model):
 
 
 class WorkDays(models.Model):
-    date = models.DateField('Date', default=timezone.now, auto_now=False, null=True)
+    date = models.DateField('Дата', default=timezone.now, auto_now=False, null=True)
     month = models.ForeignKey(Month,
                               related_name='work_days',
                               on_delete=models.SET_NULL,
                               null=True,
-                              verbose_name='Month'
+                              verbose_name='Месяц'
                               )
     slug = models.SlugField(max_length=50, unique=True)
     shift = models.ForeignKey(Shift,
@@ -36,12 +36,12 @@ class WorkDays(models.Model):
                               null=True,
                               related_name='work_days',
                               verbose_name='Смена')
-    day = models.IntegerField(default=0, verbose_name='Кибон')
-    night = models.IntegerField(default=0, verbose_name='Ночные')
-    overtime = models.IntegerField(default=0, verbose_name='Чаноб')
-    holiday_pay = models.IntegerField(default=0, verbose_name='Тыкын')
-    holiday_overtime_pay = models.IntegerField(default=0, verbose_name='Тыкын-чаноб')
-    parking_allowance = models.IntegerField(default=0, verbose_name='Парковка')
+    day = models.FloatField(default=0, verbose_name='Стандартный день')
+    night = models.FloatField(default=0, verbose_name='Ночные')
+    overtime = models.FloatField(default=0, verbose_name='Сверхурочные')
+    holiday_pay = models.FloatField(default=0, verbose_name='Работа в выходые')
+    holiday_overtime_pay = models.FloatField(default=0, verbose_name='Сверхурочные в выходые')
+    parking_allowance = models.FloatField(default=0, verbose_name='Парковка')
 
     def __str__(self):
         return str(self.date)

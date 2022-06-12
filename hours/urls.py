@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import days, tb_month
+from .views import days, tbl_month
 
 urlpatterns = [
     path('', days, name='home'),
-    path('month/<slug:slug>/', tb_month, name='tb_month'),
+    path('month/<slug:slug>/', tbl_month, name='tbl_month'),
 ]
