@@ -14,6 +14,7 @@ def days(request):
 def tbl_month(request, slug):
     months = Month.objects.all()
     month = WorkDays.objects.filter(month__slug=slug)
+    curent_month = Month.objects.get(slug__iexact=slug)
     sum_hours_day = WorkDays.objects.filter(month__slug=slug).aggregate(Day=Sum('day'))
     sum_hours_night = WorkDays.objects.filter(month__slug=slug).aggregate(Night=Sum('night'))
     sum_hours_overtime = WorkDays.objects.filter(month__slug=slug).aggregate(Overtime=Sum('overtime'))
@@ -23,5 +24,6 @@ def tbl_month(request, slug):
         'sum_hours_day': sum_hours_day['Day'],
         'sum_hours_night': sum_hours_night['Night'],
         'sum_hours_overtime': sum_hours_overtime['Overtime'],
+        'curent_month': curent_month,
     }
     return render(request, 'hours/get_month.html', context)
