@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="mtb-3">Month: {{ current_month.title }}</div>
+<div class="mtb-3">Month: {{ hours.first.month.title }}</div>
 
 <table class="table table-2 mtb-3">
 			<thead>
@@ -19,7 +19,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for day in month %}
+				{% for day in hours %}
 				<tr>
 					<td>{{ day.date|date:'m/d' }}</td>
 					<td>{{ day.date|date:'D' }}</td>
