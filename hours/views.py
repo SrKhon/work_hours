@@ -24,6 +24,6 @@ def tbl_month(request, slug):
         'sum_hours_day': sum_hours_day['Day'],
         'sum_hours_night': sum_hours_night['Night'],
         'sum_hours_overtime': sum_hours_overtime['Overtime'],
-        'curent_month': current_month,
+        'current_month': current_month,
     }
     return render(request, 'hours/get_month.html', context)
