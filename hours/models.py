@@ -3,6 +3,14 @@ from django.urls import reverse
 from django.utils import timezone
 
 
+class Rate(models.Model):
+    rate_st = models.IntegerField(default=9160)
+    slug = models.SlugField(max_length=50)
+
+    def __str__(self):
+        return str(self.rate_st)
+
+
 class Month(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
