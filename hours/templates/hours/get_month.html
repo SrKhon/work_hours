@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="mtb-3">Month: {{ hours.first.month.title }}</div>
+<div class="mtb-3">Month: {{ current_month.title }}</div>
 
 <table class="table table-2 mtb-3">
 			<thead>
@@ -15,11 +15,11 @@
 					<th>야간근로수당: {{ sum_hours_night }}</th>
 					<th>휴일근로수당: {{ sum_hours_holiday_pay }}</th>
 					<th>휴일연장근로수당: {{ sum_hours_holiday_overtime_pay }}</th>
-					<th>주차수당: {{ parking_allowance }}</th>
+					<th>주차수당: {{ sum_hours_parking_allowance }}</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for day in hours %}
+				{% for day in current_month.work_days.all %}
 				<tr>
 					<td>{{ day.date|date:'m/d' }}</td>
 					<td>{{ day.date|date:'D' }}</td>
