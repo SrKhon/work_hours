@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Rate(models.Model):
-    rate_st = models.IntegerField(default=9160)
+    rate_st = models.IntegerField()
     slug = models.SlugField(max_length=50)
 
     def __str__(self):
@@ -14,6 +14,13 @@ class Rate(models.Model):
 class Month(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True)
+    rate = models.ForeignKey(
+            Rate,
+            on_delete=models.SET_NULL,
+            null=True,
+            related_name='months',
+            verbose_name='Ставка',
+    )
 
     def __str__(self):
         return self.title
@@ -56,7 +63,6 @@ class WorkDays(models.Model):
         Rate,
         on_delete=models.SET_NULL,
         null=True,
-        default=0,
         related_name='work_days',
         verbose_name='Ставка',
     )

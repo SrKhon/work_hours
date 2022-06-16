@@ -4,6 +4,7 @@ from .models import Shift, WorkDays, Month, Rate
 
 class RateAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('rate_st',)}
+    empty_value_display = '-empty-'
 
 
 class MonthAdmin(admin.ModelAdmin):
@@ -13,6 +14,8 @@ class MonthAdmin(admin.ModelAdmin):
 class WorkDaysAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('date',)}
     list_display = ('date', 'shift', 'month')
+    readonly_fields = ('rate',)
+    date_hierarchy = 'date'
 
 
 class ShiftAdmin(admin.ModelAdmin):
