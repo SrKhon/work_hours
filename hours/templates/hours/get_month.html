@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 
 {% block content %}
 
 <div class="mtb-3">Month: {{ current_month.title }}</div>
 
 <div class="mtb-3">Rate: {{ current_month.rate }} Won</div>
+
+
+
 
 <table class="table table-2 mtb-3">
 			<thead>
@@ -37,5 +41,13 @@
 				{% endfor %}
 			</tbody>
 		</table>
+
+<div class="mtb-3">기본금 (Day): {{ sum_hours_day|mul:current_month.rate.rate_st }} Won</div>
+<div class="mtb-3">연장근로수당 (overtime): {{ sum_hours_overtime|mul:current_month.rate.rate_st }} Won</div>
+<div class="mtb-3">야간근로수당 (Night): {{ sum_hours_night|mul:current_month.rate.rate_st }} Won</div>
+<div class="mtb-3">휴일근로수당 (Holiday Pay): {{ sum_hours_holiday_pay|mul:current_month.rate.rate_st }} Won</div>
+<div class="mtb-3">휴일연장근로수당 (Holiday Overtime Pay): {{ sum_hours_holiday_overtime_pay|mul:current_month.rate.rate_st }} Won</div>
+<div class="mtb-3">주차수당 (Parking Allowance): {{ sum_hours_parking_allowance|mul:current_month.rate.rate_st }} Won</div>
+
 
 {% endblock content %}

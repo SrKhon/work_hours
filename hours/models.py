@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Rate(models.Model):
-    rate_st = models.IntegerField()
+    rate_st = models.FloatField(default=0)
     slug = models.SlugField(max_length=50)
 
     def __str__(self):
