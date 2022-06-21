@@ -3,7 +3,6 @@ from django import template
 from hours.models import Month
 
 
-
 register = template.Library()
 
 
