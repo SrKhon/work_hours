@@ -5,7 +5,7 @@ from .models import WorkDays, Month, Rate
 
 def days(request):
     work_days = WorkDays.objects.all()
-    rate = Rate.objects.get(id=4)
+    rate = Rate.objects.get(id=1)
 
     sum_hours_day = WorkDays.objects.aggregate(Sum('day'))
     sum_hours_night = WorkDays.objects.aggregate(Sum('night'))
